@@ -32,13 +32,18 @@ see contrastive_loss.py for more details.
 
 ## Metrics
 To assess the performance of the model, we use several metrics to ensure that distances for similar pairs remain close to zero, while distances for dissimilar pairs are maximized. Specifically, we evaluate:
--Aggregated dissimilar distance
--Aggregated similar distance
--Threshold-based accuracy
+
+- Aggregated dissimilar distance
+- Aggregated similar distance
+- Threshold-based accuracy
 
 see distance.py and accuracy.py for more details.
 
 ## Model
+
+Using contrastive loss to work with image pairs, the network requires two input images. Each image is processed by the same embedding model—a CNN that serves as a feature extractor—which outputs a vector representation of the image. The network then computes the distance between these two embedding vectors, and this distance serves as the model's output.
+
+<img width="841" alt="siamese" src="https://github.com/user-attachments/assets/0f05a298-0d43-4793-befa-c9c4979c9949" />
 
 
 # Results
