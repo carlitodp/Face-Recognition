@@ -6,5 +6,7 @@ In this project, we implement a CNN-based Siamese network for face verification 
 
 The CelebA dataset can be downloaded following this link: https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html or directly loaded from Tensorflow (https://www.tensorflow.org/federated/api_docs/python/tff/simulation/datasets/celeba/load_data). In this case, the dataset was downloaded and with the Identities annotations file, each photo was matched to a unique ID.
 
+Positive pairs were formed by computing every possible combinations among photos of a same class. A random sample from this pool is extracted. Negative pairs are created by randomly assoicating two different IDs.
 
+More details can be found in the data_loader.py file.
 
