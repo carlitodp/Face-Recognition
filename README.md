@@ -43,7 +43,9 @@ see distance.py and accuracy.py for more details.
 
 Using contrastive loss to work with image pairs, the network requires two input images. Each image is processed by the same embedding model—a CNN that serves as a feature extractor—which outputs a vector representation of the image. The network then computes the distance between these two embedding vectors, and this distance serves as the model's output.
 
+
 <img width="841" alt="siamese" src="https://github.com/user-attachments/assets/0f05a298-0d43-4793-befa-c9c4979c9949" />
+
 
 For this purpose, we will compare two different CNN approaches: one implemented from scratch and another using an open-source architecture (e.g., ResNet or GoogLeNet). This comparison will help us evaluate the impact of each architecture on the overall performance of the face verification task.
 
