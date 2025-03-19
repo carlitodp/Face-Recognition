@@ -21,13 +21,27 @@ A data loader was implemented to manage the features described above. It accepts
 - normalize: A boolean flag that specifies whether to scale the data to the range [0, 1].
 - image_per_celeb: The number of images per celebrity to use when forming positive pairs.
 
+More details can be found in the data_loader.py file.
+
 # Modeling
 
 ## Loss Function
+To achieve this, we employed contrastive loss—a function that minimizes the distance between positive pairs while maximizing the distance between negative pairs. This loss function uses a distance metric (such as Euclidean or cosine distance), and in our implementation, we used the cosine distance (calculated as 1 - cosine similarity).
+
+see contrastive_loss.py for more details.
 
 ## Metrics
+To assess the performance of the model, we use several metrics to ensure that distances for similar pairs remain close to zero, while distances for dissimilar pairs are maximized. Specifically, we evaluate:
+-Aggregated dissimilar distance
+-Aggregated similar distance
+-Threshold-based accuracy
+
+see distance.py and accuracy.py for more details.
 
 ## Model
+
+
+# Results
   
-More details can be found in the data_loader.py file.
+
 
