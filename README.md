@@ -20,6 +20,14 @@ A data loader was implemented to manage the features described above. It accepts
 - preprocess_pipeline: A preprocessing function used when working with a TensorFlow model.
 - normalize: A boolean flag that specifies whether to scale the data to the range [0, 1].
 - image_per_celeb: The number of images per celebrity to use when forming positive pairs.
+
+#Modeling
+
+## Loss Function
+
+## Metrics
+
+## Model
   
 More details can be found in the data_loader.py file.
 
