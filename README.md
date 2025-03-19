@@ -49,6 +49,8 @@ Using contrastive loss to work with image pairs, the network requires two input 
 
 For this purpose, we will compare two different CNN approaches: one implemented from scratch and another using an open-source architecture (e.g., ResNet or GoogLeNet). This comparison will help us evaluate the impact of each architecture on the overall performance of the face verification task.
 
+see siamese_network.py for more details
+
 # Results
   
 
