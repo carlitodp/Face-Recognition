@@ -26,7 +26,9 @@ More details can be found in the data_loader.py file.
 # Modeling
 
 ## Loss Function
-To achieve this, we employed contrastive loss—a function that minimizes the distance between positive pairs while maximizing the distance between negative pairs. This loss function uses a distance metric (such as Euclidean or cosine distance), and in our implementation, we used the cosine distance (calculated as 1 - cosine similarity).
+To achieve this, we employed contrastive loss—a function that minimizes the distance between positive pairs while maximizing the distance between negative pairs. This loss function uses a distance metric (such as Euclidean or cosine distance) to quantify the similarity between embeddings. In our implementation, we used cosine distance (calculated as 1 - cosine similarity).
+
+A critical parameter in this loss is the margin. The margin defines a threshold: for similar pairs, the loss encourages their distance to be smaller than the margin, while for dissimilar pairs, it enforces that their distance is at least greater than the margin. This helps ensure that the model effectively brings similar pairs closer together and pushes dissimilar pairs apart.
 
 see contrastive_loss.py for more details.
 
