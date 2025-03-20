@@ -41,7 +41,11 @@ see distance.py and accuracy.py for more details.
 
 ## Model
 
-Using contrastive loss to work with image pairs, the network requires two input images. Each image is processed by the same embedding model—a CNN that serves as a feature extractor—which outputs a vector representation of the image. The network then computes the distance between these two embedding vectors, and this distance serves as the model's output.
+Using contrastive loss with image pairs, the network requires two input images. Each image is processed by the same embedding model—a CNN that acts as a feature extractor—to produce a vector representation (embedding) of the image. The network then computes the distance between these two embeddings, and this distance serves as the model's output.
+
+An essential consideration in this process is the size of the embedding. The embedding size is paramount because it directly influences the model's ability to capture discriminative features. A low-dimensional embedding may not capture all critical information from the images, leading to underfitting where important details are missed. Conversely, an excessively high-dimensional embedding can result in the curse of dimensionality, causing the model to overfit by capturing noise and irrelevant variations rather than generalizable features.
+
+For our baseline, we start with an embedding size of 128. This value provides a balanced starting point, although further tuning may be necessary to optimize performance for the specific task.
 
 
 <img width="841" alt="siamese" src="https://github.com/user-attachments/assets/0f05a298-0d43-4793-befa-c9c4979c9949" />
