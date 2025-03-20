@@ -58,6 +58,10 @@ For this purpose, we will compare two different CNN approaches: one implemented 
 see siamese_network.py for more details
 
 # Results
+
+## Customed CNN
+
+
   
 
 
