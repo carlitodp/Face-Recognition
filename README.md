@@ -61,7 +61,44 @@ see siamese_network.py for more details
 
 ## Customed CNN
 
+| **Layer (type)**                                      | **Output Shape**         | **Param #** |
+|-------------------------------------------------------|--------------------------|-------------|
+| input_3 (InputLayer)                                  | [(None, 96, 96, 3)]       | 0           |
+| conv2d_8 (Conv2D)                                     | (None, 47, 47, 16)       | 448         |
+| batch_normalization_13 (BatchNormalization)         | (None, 47, 47, 16)       | 64          |
+| activation_13 (Activation)                            | (None, 47, 47, 16)       | 0           |
+| conv2d_9 (Conv2D)                                     | (None, 23, 23, 32)       | 4640        |
+| batch_normalization_14 (BatchNormalization)         | (None, 23, 23, 32)       | 128         |
+| activation_14 (Activation)                            | (None, 23, 23, 32)       | 0           |
+| conv2d_10 (Conv2D)                                    | (None, 11, 11, 64)       | 18496       |
+| batch_normalization_15 (BatchNormalization)         | (None, 11, 11, 64)       | 256         |
+| activation_15 (Activation)                            | (None, 11, 11, 64)       | 0           |
+| conv2d_11 (Conv2D)                                    | (None, 5, 5, 128)        | 73856       |
+| batch_normalization_16 (BatchNormalization)         | (None, 5, 5, 128)        | 512         |
+| activation_16 (Activation)                            | (None, 5, 5, 128)        | 0           |
+| global_average_pooling2d_3 (GlobalAveragePooling2D)   | (None, 128)              | 0           |
+| dense_7 (Dense)                                       | (None, 512)              | 66048       |
+| batch_normalization_17 (BatchNormalization)         | (None, 512)              | 2048        |
+| activation_17 (Activation)                            | (None, 512)              | 0           |
+| dense_8 (Dense)                                       | (None, 256)              | 131328      |
+| batch_normalization_18 (BatchNormalization)         | (None, 256)              | 1024        |
+| activation_18 (Activation)                            | (None, 256)              | 0           |
+| dense_9 (Dense)                                       | (None, 128)              | 32896       |
+| **Total Parameters**                                  |                          | **331,744** |
 
-  
+compiled with:
+- Contrastive Loss with margin = 1.0
+- Aggregated dissimilar distance
+- Aggregated similar distance
+- Threshold-based accuracy (Threshold = 0.5)
+- Adam optimizer with a learning rate of 1e-4
+- Distance metric: Cosine Distance [-1, 1]
+
+
+  ![image](https://github.com/user-attachments/assets/6aa93210-5750-44e6-a419-a7d60b84b858) ![image](https://github.com/user-attachments/assets/418cd7b7-7b63-4392-adcf-0aa631c529bf) ![image](https://github.com/user-attachments/assets/e92ae6e1-6626-4c78-931b-0af6c1993c8f) ![image](https://github.com/user-attachments/assets/614975ef-d91b-4b9c-95a2-ee13ffbeb3cd)
+
+Over the epochs, the distances for negative pairs steadily increase while those for positive pairs decrease, resulting in a consistently declining loss. However, the significant gap between the training and validation metrics for both loss and accuracy indicates that the model is overfitting to the training data.
+
+
 
 
