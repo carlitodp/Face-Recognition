@@ -1,7 +1,7 @@
 import tensorflow as tf
  
 class circleLoss(tf.keras.losses.Loss):
-    def __init__(self, margin, gamma, name="contrastive_loss", reduction=tf.keras.losses.Reduction.AUTO):
+    def __init__(self, margin, gamma, name="circle_loss", reduction=tf.keras.losses.Reduction.AUTO):
         super().__init__(name=name, reduction=reduction)
         self.margin = margin
         self.name = name
