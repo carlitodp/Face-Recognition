@@ -130,6 +130,9 @@ Across 15 epochs we observed three distinct patterns:
 
 To avoid the over-fit phase we introduced early stopping at epoch 10 and will explore stronger regularisation (heavier augmentation, dropout, etc.). Future gains may come from swapping in a pre-trained backbone, adding more data, or further hyper-parameter tuning.
 
+Note: 
+- The repo contains an Excel workbook that logs every trial and shows how each hyper-parameter affected loss, distance metrics, and accuracy.
+- More updates are on the way !
 
 
 
