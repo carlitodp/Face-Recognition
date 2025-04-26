@@ -73,7 +73,13 @@ class siameseNetwork(tf.keras.Model):
     def complete_embedding(self, feature_extractor):
         
         x = feature_extractor.output
-        x = tf.keras.layers.GlobalAveragePooling2D()(x) 
+        x = tf.keras.layers.GlobalAveragePooling2D()(x)
+        
+        # x = tf.keras.layers.Dense(64, kernel_regularizer=regularizers.l2(self.l2_reg))(x)
+        # x = tf.keras.layers.BatchNormalization()(x)
+        # x = tf.keras.layers.LeakyReLU()(x)
+        # x = tf.keras.layers.Dropout(self.dropout)(x) if self.dropout is not None else x
+         
         x = tf.keras.layers.Dense(self.embedding_dimension)(x)
         
         model = Model(inputs = feature_extractor.input, outputs = x, name = "Embedding_model")

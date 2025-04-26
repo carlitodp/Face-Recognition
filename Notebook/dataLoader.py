@@ -178,11 +178,7 @@ class Loader():
 
         x_pos, x_neg = tf.constant(pos_pairs, dtype=tf.string), tf.constant(neg_pairs, dtype=tf.string)
 
-        if self.annotation_type:
-            y_pos, y_neg = tf.ones((len(pos_pairs), 1)), tf.zeros((len(neg_pairs), 1))
-            
-        else:
-            y_pos, y_neg = tf.zeros((len(pos_pairs), 1)), tf.ones((len(neg_pairs), 1))
+        y_pos, y_neg = tf.zeros((len(pos_pairs), 1)), tf.ones((len(neg_pairs), 1))
 
         X = tf.concat([x_pos, x_neg], axis=0)
         Y = tf.concat([y_pos, y_neg], axis=0)
@@ -191,8 +187,6 @@ class Loader():
 
         dataset = dataset.map(lambda paths, label: self.load_and_preprocess_images(paths, label, image_shape),
                           num_parallel_calls=tf.data.AUTOTUNE)
-        
-        # dataset = dataset.cache()
         
         buffer = min(len(pos_pairs) * 2, 250000)
         dataset = dataset.shuffle(buffer)
